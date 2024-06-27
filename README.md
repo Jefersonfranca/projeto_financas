@@ -2,7 +2,7 @@
 
 Este é um aplicativo simples desenvolvido em Python usando Streamlit para controle de finanças domésticas. O aplicativo permite que o usuário registre diversas despesas e entradas de dinheiro associadas a diferentes casas ao longo dos meses do ano.
 
- <a href="https://jeferson-financa.streamlit.app/" rel="nofollow"><img src="https://camo.githubusercontent.com/7265941703624c2fcb95bd7957cf7ddbe817f5fdd84c593c682d5314f43623e9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f53747265616d6c69742d4646344234423f6c6f676f3d53747265616d6c6974266c6f676f436f6c6f723d7768697465"  alt="Streamlit" data-canonical-src="https://img.shields.io/badge/Streamlit-FF4B4B?logo=Streamlit&amp;logoColor=white" style="max-width: 100%;"></a>
+ <a href="https://jeferson-projeto-financas.streamlit.app/" rel="nofollow"><img src="https://camo.githubusercontent.com/7265941703624c2fcb95bd7957cf7ddbe817f5fdd84c593c682d5314f43623e9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f53747265616d6c69742d4646344234423f6c6f676f3d53747265616d6c6974266c6f676f436f6c6f723d7768697465"  alt="Streamlit" data-canonical-src="https://img.shields.io/badge/Streamlit-FF4B4B?logo=Streamlit&amp;logoColor=white" style="max-width: 100%;"></a>
 
 ## Funcionalidades
 
