@@ -77,12 +77,19 @@ def main():
     st.write(f'Lucro Líquido: {lucro_liquido}')
 
     # Botão para download do Excel
-    st.markdown(get_table_download_link(df), unsafe_allow_html=True)
+    #st.markdown(get_table_download_link(df), unsafe_allow_html=True)
+    st.markdown("---")
+    df_xlsx = download_excel(df)
+    st.download_button(label='📥 Download tabela', 
+                        data=df_xlsx, 
+                        file_name='controle_financas.xlsx')
+        
+    st.markdown("---")
+
+    
 
 def get_table_download_link(df):
-    excel_data = download_excel(df)
-    b64 = base64.b64encode(excel_data).decode()
-    href = f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="controle_financas.xlsx">Download Planilha Excel</a>'
+    
     return href
 
 if __name__ == '__main__':
