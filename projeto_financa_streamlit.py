@@ -15,7 +15,7 @@ def main():
     st.title('Controle de Finanças')
 
     data = {
-        'Empreendimento': [],
+        'Casa': [],
         'Conta de Luz': [],
         'Água': [],
         'Internet': [],
@@ -31,7 +31,7 @@ def main():
 
     index = 0
     while True:
-        casa = st.text_input(f'Nome do Empreendimento {index + 1}:')
+        casa = st.text_input(f'Nome da Casa {index + 1}:')
         luz = st.number_input(f'Valor da Conta de Luz {index + 1}:')
         agua = st.number_input(f'Valor da Conta de Água {index + 1}:')
         internet = st.number_input(f'Valor da Conta de Internet {index + 1}:')
@@ -40,7 +40,7 @@ def main():
         despesa_index = 0
         more_expenses = True
         while more_expenses:
-            despesa = st.number_input(f'Digite o valor de outra despesa {despesa_index + 1} do Empreendimento {index + 1} (ou 0 se não houver):')
+            despesa = st.number_input(f'Digite o valor de outra despesa {despesa_index + 1} para a casa {index + 1} (ou 0 se não houver):')
             if despesa == 0:
                 more_expenses = False
             else:
@@ -50,7 +50,7 @@ def main():
         entrada = st.number_input(f'Valor da Entrada de Dinheiro {index + 1}:')
         mes = st.selectbox(f'Selecione o Mês {index + 1}:', months)
 
-        data['Empreendimento'].append(casa)
+        data['Casa'].append(casa)
         data['Conta de Luz'].append(luz)
         data['Água'].append(agua)
         data['Internet'].append(internet)
@@ -58,7 +58,7 @@ def main():
         data['Entrada de Dinheiro'].append(entrada)
         data['Mês'].append(mes)
 
-        more_houses = st.checkbox(f'Adicionar outro Empreendimento?', key=f'checkbox_{index}')
+        more_houses = st.checkbox(f'Adicionar outra casa?', key=f'checkbox_{index}')
         if not more_houses:
             break
         
@@ -77,19 +77,12 @@ def main():
     st.write(f'Lucro Líquido: {lucro_liquido}')
 
     # Botão para download do Excel
-    #st.markdown(get_table_download_link(df), unsafe_allow_html=True)
-    st.markdown("---")
-    df_xlsx = download_excel(df)
-    st.download_button(label='📥 Download tabela', 
-                        data=df_xlsx, 
-                        file_name='controle_financas.xlsx')
-        
-    st.markdown("---")
-
-    
+    st.markdown(get_table_download_link(df), unsafe_allow_html=True)
 
 def get_table_download_link(df):
-    
+    excel_data = download_excel(df)
+    b64 = base64.b64encode(excel_data).decode()
+    href = f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="controle_financas.xlsx">Download Planilha Excel</a>'
     return href
 
 if __name__ == '__main__':
