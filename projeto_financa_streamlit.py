@@ -73,9 +73,9 @@ def main():
     despesas_totais = df[['Conta de Luz', 'Água', 'Internet', 'Outras Despesas']].sum().sum()
     lucro_liquido = lucro_total - despesas_totais
 
-    st.write(f'Lucro Total: {lucro_total}')
-    st.write(f'Despesas Totais: {despesas_totais}')
-    st.write(f'Lucro Líquido: {lucro_liquido}')
+    st.write(f'Lucro Total: {round(lucro_total,2)}')
+    st.write(f'Despesas Totais: {round(despesas_totais,2)}')
+    st.write(f'Lucro Líquido: {round(lucro_liquido,2)}')
 
     # Botão para download do Excel
     #st.markdown(get_table_download_link(df), unsafe_allow_html=True)
