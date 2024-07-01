@@ -55,7 +55,7 @@ def main():
         data['Conta de Luz'].append(luz)
         data['Água'].append(agua)
         data['Internet'].append(internet)
-        data['Outras Despesas'].append(sum(outras_despesas))
+        data['Outras Despesas'].append(round(sum(outras_despesas), 2))
         data['Entrada de Dinheiro'].append(entrada)
         data['Mês'].append(mes)
 
@@ -69,16 +69,15 @@ def main():
 
     st.write(df)
 
-    lucro_total = df['Entrada de Dinheiro'].sum()
-    despesas_totais = df[['Conta de Luz', 'Água', 'Internet', 'Outras Despesas']].sum().sum()
-    lucro_liquido = lucro_total - despesas_totais
+    lucro_total = round(df['Entrada de Dinheiro'].sum(), 2)
+    despesas_totais = round(df[['Conta de Luz', 'Água', 'Internet', 'Outras Despesas']].sum().sum(), 2)
+    lucro_liquido = round(lucro_total - despesas_totais, 2)
 
-    st.write(f'Lucro Total: {round(lucro_total,2)}')
-    st.write(f'Despesas Totais: {round(despesas_totais,2)}')
-    st.write(f'Lucro Líquido: {round(lucro_liquido,2)}')
+    st.write(f'Lucro Total: {lucro_total}')
+    st.write(f'Despesas Totais: {despesas_totais}')
+    st.write(f'Lucro Líquido: {lucro_liquido}')
 
     # Botão para download do Excel
-    #st.markdown(get_table_download_link(df), unsafe_allow_html=True)
     st.markdown("---")
     df_xlsx = download_excel(df)
     st.download_button(label='📥 Download tabela', 
@@ -86,11 +85,7 @@ def main():
                         file_name='controle_financas.xlsx')
         
     st.markdown("---")
-  
-
-def get_table_download_link(df):
-
-    return href
+    st.text("Feito por Jeferson França")
 
 if __name__ == '__main__':
     main()
